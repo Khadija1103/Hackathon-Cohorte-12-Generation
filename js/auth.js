@@ -18,7 +18,6 @@ if (registerForm) {
 
         alert("Registro exitoso");
 
-        // IMPORTANTE: ir a login (inicio.html)
         window.location.href = "inicio.html";
     });
 }
@@ -49,11 +48,10 @@ if (loginForm) {
 
             alert("Bienvenido " + usuario.nombre);
 
-            // IR A TIENDA
-            window.location.href = "index.html";
+            window.location.replace("index.html");
 
         } else {
-            alert("Datos incorrectos");
+            alert("Correo o contraseña incorrectos");
         }
     });
 }
