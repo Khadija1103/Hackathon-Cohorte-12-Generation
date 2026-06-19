@@ -12,98 +12,95 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
 
-            <a class="navbar-brand" href="index.html">
-                TrendyShop
-            </a>
+        <a class="navbar-brand" href="index.html">TrendyShop</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="menu">
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Inicio</a>
-                    </li>
+            <ul class="navbar-nav ms-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="quienes-somos.html">Quiénes Somos</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Inicio</a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactanos.html">Contáctanos</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quienes-somos.html">Quiénes Somos</a>
+                </li>
 
-                    <!-- 🛒 CARRITO DROPDOWN -->
-                    <li class="nav-item dropdown">
+                <li class="nav-item">
+                    <a class="nav-link" href="contactanos.html">Contáctanos</a>
+                </li>
 
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            🛒 Carrito (<span id="contador-carrito">0</span>)
-                        </a>
+                <!-- 🛒 CARRITO -->
+                <li class="nav-item" id="carrito-nav">
+                    <a class="nav-link" href="carrito.html">
+                        🛒 Carrito (<span id="contador-carrito">0</span>)
+                    </a>
+                </li>
 
-                        <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width: 300px;">
+                <!-- 👤 PERFIL -->
+                <li class="nav-item" id="perfil-nav">
+                    <a class="nav-link" id="perfil" href="perfil.html">👤</a>
+                </li>
 
-                            <li>
-                                <div id="contenedor-carrito"></div>
-                            </li>
+                <!-- LOGIN -->
+                <li class="nav-item" id="login-nav">
+                    <a class="nav-link" href="inicio.html">Iniciar sesión</a>
+                </li>
 
-                            <li><hr class="dropdown-divider"></li>
+                <!-- REGISTRO -->
+                <li class="nav-item" id="registro-nav">
+                    <a class="nav-link" href="registro.html">Registrarse</a>
+                </li>
 
-                            <li class="text-center">
-                                <strong>Total: <span id="total">$0</span></strong>
-                            </li>
+                <!-- LOGOUT (OCULTO HASTA LOGIN) -->
+                <li class="nav-item d-none" id="logout-nav">
+                    <a class="nav-link text-danger" href="#" onclick="logout()">Salir</a>
+                </li>
 
-                        </ul>
-
-                    </li>
-
-                </ul>
-            </div>
+            </ul>
 
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1>Bienvenido a TrendyShop</h1>
-            <p class="lead">
-                Moda y accesorios para todos los estilos.
-            </p>
-        </div>
-    </header>
+<!-- HERO -->
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1>Bienvenido a TrendyShop</h1>
+        <p class="lead">Moda y accesorios para todos los estilos</p>
+    </div>
+</header>
 
-    <!-- Catálogo -->
-    <section class="container my-5">
+<!-- PRODUCTOS -->
+<section class="container my-5">
 
-        <h2 class="text-center mb-4">Nuestros Productos</h2>
+    <h2 class="text-center mb-4">Nuestros Productos</h2>
 
-        <div class="row" id="contenedor-productos">
-            <!-- JS -->
-        </div>
+    <div class="row" id="contenedor-productos"></div>
 
-    </section>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center p-3">
-        <p class="mb-0">
-            © 2026 TrendyShop - Todos los derechos reservados
-        </p>
-    </footer>
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center p-3">
+    <p class="mb-0">© 2026 TrendyShop</p>
+</footer>
 
-    <!-- Scripts -->
-    <script src="js/productos.js"></script>
-    <script src="js/carrito.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/app.js"></script>
+<!-- SCRIPTS -->
+<script src="js/productos.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>

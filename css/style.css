@@ -49,7 +49,18 @@ h2{
     color: #0d6efd;
 }
 
-/* TARJETAS PRODUCTOS */
+/* =========================
+   PRODUCTOS (ARREGLADO)
+========================= */
+
+.product-img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* si usas bootstrap cards */
 .card{
     border: none;
     border-radius: 15px;
@@ -64,10 +75,12 @@ h2{
 }
 
 .card img{
+    width: 100%;
     height: 250px;
     object-fit: cover;
 }
 
+/* textos de cards */
 .card-title{
     font-size: 1.2rem;
     font-weight: bold;
@@ -88,7 +101,7 @@ h2{
     transform: scale(1.03);
 }
 
-/* FORMULARIO */
+/* FORMULARIOS */
 form label{
     font-weight: bold;
 }
@@ -101,13 +114,173 @@ form label{
     box-shadow: 0 0 10px rgba(13,110,253,0.3);
 }
 
-/* QUIÉNES SOMOS */
-img{
-    max-width: 100%;
+/* AUTH (LOGIN / REGISTRO) */
+.auth-container{
+    max-width: 420px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
-.shadow{
-    border-radius: 15px;
+.auth-title{
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.auth-btn{
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* PERFIL */
+.perfil-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.perfil-titulo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.perfil-card {
+    background: #f8f9fa;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.perfil-card span {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* NIVELES */
+.nivel-bronce {
+    background: #cd7f32;
+    color: white;
+}
+
+.nivel-plata {
+    background: #c0c0c0;
+    color: black;
+}
+
+.nivel-oro {
+    background: #ffd700;
+    color: black;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #111;
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 2000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar a:hover {
+    background: #0d6efd;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 1500;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* LOGO CIRCULAR */
+.logo-circular {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.logo-circular img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* MENU DESPLEGABLE */
+.menu {
+    position: fixed;
+    top: 80px;
+    left: 15px;
+    background: white;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 9999;
+    transition: 0.3s;
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+.menu.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #eee;
+}
+
+.menu a:hover {
+    background: #0d6efd;
+    color: white;
 }
 
 /* FOOTER */
@@ -130,7 +303,6 @@ footer{
     .navbar-brand{
         font-size: 1.3rem;
     }
-
 }
 
 /* RESPONSIVE CELULAR */
@@ -152,5 +324,4 @@ footer{
     .card img{
         height: 200px;
     }
-
 }
