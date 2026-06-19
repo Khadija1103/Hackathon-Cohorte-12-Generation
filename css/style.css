@@ -136,8 +136,72 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Botones */
-.btn {
+/* Carrito */
+
+.carrito-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tabla-carrito th {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+.resumen-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.resumen-card .card-header {
+  background-color: #d7b98a;
+  color: #111111;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 15px 15px 0 0 !important;
+}
+
+.btn-vaciar {
+  background-color: #F8F8F6;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-vaciar:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-pagar {
+  background-color: #F8F8F6;
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-pagar:hover {
+  background-color: #d7b98a;
+  color: #111111;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.carrito-vacio .icono {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 20px;
 }
 
 /* RESPONSIVE TABLET */
