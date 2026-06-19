@@ -43,6 +43,10 @@ main {
   color: #0d6efd !important;
 }
 
+.nav-item {
+  font-size: 20px;
+}
+
 /* HERO */
 header {
   /* margin-top: 105px; */
@@ -82,13 +86,12 @@ h2 {
     align-items: center;
     z-index: 99999;
     
-    /* CAMBIA ESTO: 1.5s es el tiempo que tardará en volverse completamente transparente */
-    transition: opacity 1.5s ease-in-out; 
+    transition: opacity 1s ease-in-out; 
 }
 
 .imagen-carga {
-    max-width: 80%;     /* Evita que en celulares la imagen sea más grande que la pantalla */
-    height: auto;       /* Mantiene la proporción original de la imagen */
+    width: auto;
+    height: auto;       
     object-fit: contain;
     animation: latido 5s infinite ease-in-out;
 }
@@ -101,7 +104,7 @@ h2 {
 
 /* LOGO */
 #logo {
-  width: 120px;
+  width: 150px;
 }
 
 /* TARJETAS PRODUCTOS */
