@@ -1,156 +1,159 @@
 /* RESET */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* GENERAL */
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 /* NAVBAR */
-.navbar-brand{
-    font-size: 1.6rem;
-    font-weight: bold;
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
-.nav-link{
-    transition: 0.3s;
+.nav-link {
+  transition: 0.3s;
 }
 
-.nav-link:hover{
-    color: #0d6efd !important;
+.nav-link:hover {
+  color: #0d6efd !important;
 }
 
 /* HERO */
-header{
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header h1{
-    font-size: 3rem;
-    font-weight: bold;
+header h1 {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-header p{
-    font-size: 1.2rem;
+header p {
+  font-size: 1.2rem;
 }
 
 /* TITULOS */
-h2{
-    font-weight: bold;
-    color: #0d6efd;
+h2 {
+  font-weight: bold;
+  color: #E5D0AB;
 }
 
 /* TARJETAS PRODUCTOS */
-.card{
-    border: none;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.3s;
-    margin-bottom: 20px;
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  margin-bottom: 20px;
 }
 
-.card:hover{
-    transform: translateY(-8px);
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card img{
-    height: 250px;
-    object-fit: cover;
+.card img {
+  height: 250px;
+  object-fit: cover;
 }
 
-.card-title{
-    font-size: 1.2rem;
-    font-weight: bold;
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.card-text{
-    color: #0d6efd;
-    font-size: 1.1rem;
-    font-weight: bold;
+.card-text {
+  color: #0d6efd;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 /* BOTONES */
-.btn-primary{
-    border-radius: 8px;
+.btn-primary {
+  border-radius: 8px;
 }
 
-.btn-primary:hover{
-    transform: scale(1.03);
+.btn-primary:hover {
+  transform: scale(1.03);
 }
 
 /* FORMULARIO */
-form label{
-    font-weight: bold;
+form label {
+  font-weight: bold;
 }
 
-.form-control{
-    border-radius: 10px;
+.form-control {
+  border-radius: 10px;
 }
 
-.form-control:focus{
-    box-shadow: 0 0 10px rgba(13,110,253,0.3);
+.form-control:focus {
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
 }
 
 /* QUIÉNES SOMOS */
-img{
-    max-width: 100%;
+img {
+  max-width: 100%;
 }
 
-.shadow{
-    border-radius: 15px;
+.shadow {
+  border-radius: 15px;
 }
 
 /* FOOTER */
-footer{
-    margin-top: 50px;
-    font-size: 0.95rem;
+footer {
+  margin-top: 50px;
+  font-size: 0.95rem;
 }
 
 /* RESPONSIVE TABLET */
-@media (max-width: 768px){
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
 
-    header h1{
-        font-size: 2.2rem;
-    }
+  header p {
+    font-size: 1rem;
+  }
 
-    header p{
-        font-size: 1rem;
-    }
-
-    .navbar-brand{
-        font-size: 1.3rem;
-    }
-
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
 }
 
 /* RESPONSIVE CELULAR */
-@media (max-width: 576px){
+@media (max-width: 576px) {
+  header {
+    min-height: 220px;
+    padding: 20px;
+  }
 
-    header{
-        min-height: 220px;
-        padding: 20px;
-    }
+  header h1 {
+    font-size: 1.8rem;
+  }
 
-    header h1{
-        font-size: 1.8rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 
-    h2{
-        font-size: 1.5rem;
-    }
-
-    .card img{
-        height: 200px;
-    }
-
+  .card img {
+    height: 200px;
+  }
 }
