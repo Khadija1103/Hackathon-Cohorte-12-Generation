@@ -1,8 +1,8 @@
-// ui.js - SOLO INTERFAZ (compatible con tu proyecto)
+// =========================
+// UI TRENDYSHOP
+// =========================
 
-// -------------------------------
-// RENDER DE PRODUCTOS
-// -------------------------------
+// PRODUCTOS
 function renderProductos() {
 
     const contenedor = document.getElementById("contenedor-productos");
@@ -11,56 +11,32 @@ function renderProductos() {
 
     contenedor.innerHTML = "";
 
-    productos.forEach(producto => {
+    productos.forEach(p => {
 
         const div = document.createElement("div");
         div.classList.add("col-md-4", "mb-4");
 
         div.innerHTML = `
             <div class="card h-100 shadow-sm">
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                
+                <img src="${p.imagen}" class="card-img-top">
                 <div class="card-body text-center">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">$${producto.precio}</p>
-
-                    <button class="btn btn-primary btn-agregar">
-                        Agregar al carrito
-                    </button>
+                    <h5>${p.nombre}</h5>
+                    <p>$${p.precio}</p>
+                    <button class="btn btn-primary">Agregar</button>
                 </div>
             </div>
         `;
 
-        div.querySelector(".btn-agregar").addEventListener("click", () => {
-            agregarAlCarrito(producto.id);
+        div.querySelector("button").addEventListener("click", () => {
+            agregarAlCarrito(p.id);
         });
 
         contenedor.appendChild(div);
     });
 }
 
-
-// -------------------------------
-// ACTUALIZAR CONTADOR DEL CARRITO
-// -------------------------------
-function actualizarContadorUI() {
-
-    const contador = document.getElementById("contador-carrito");
-
-    if (!contador) return;
-
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-
-    contador.textContent = total;
-}
-
-
-// -------------------------------
-// MOSTRAR CARRITO (SI EXISTE HTML)
-// -------------------------------
-function mostrarCarritoUI() {
+// CARRITO DROPDOWN
+function mostrarCarrito() {
 
     const contenedor = document.getElementById("contenedor-carrito");
 
@@ -70,57 +46,60 @@ function mostrarCarritoUI() {
 
     contenedor.innerHTML = "";
 
+    if (carrito.length === 0) {
+        contenedor.innerHTML = "<p class='text-center mb-0'>Carrito vacío</p>";
+        return;
+    }
+
     carrito.forEach(item => {
 
         const div = document.createElement("div");
-        div.classList.add("d-flex", "justify-content-between", "mb-2");
+        div.classList.add("d-flex", "justify-content-between", "align-items-center", "mb-2");
 
         div.innerHTML = `
-            <span>${item.nombre} (x${item.cantidad})</span>
-            <span>$${item.precio * item.cantidad}</span>
-            <button class="btn btn-danger btn-sm btn-eliminar">X</button>
+            <small>${item.nombre} x${item.cantidad}</small>
+            <button class="btn btn-outline-danger btn-sm">Eliminar</button>
         `;
 
-        div.querySelector(".btn-eliminar").addEventListener("click", () => {
+        div.querySelector("button").addEventListener("click", () => {
             eliminarDelCarrito(item.id);
-            mostrarCarritoUI();
-            actualizarContadorUI();
         });
 
         contenedor.appendChild(div);
     });
-
-    actualizarTotalUI();
 }
 
+// CONTADOR
+function actualizarContador() {
 
-// -------------------------------
-// TOTAL DEL CARRITO
-// -------------------------------
-function actualizarTotalUI() {
-
-    const totalHTML = document.getElementById("total");
-
-    if (!totalHTML) return;
+    const contador = document.getElementById("contador-carrito");
 
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    const total = carrito.reduce(
-        (acc, item) => acc + (item.precio * item.cantidad),
-        0
-    );
+    const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
-    totalHTML.textContent = `$${total}`;
+    contador.textContent = total;
 }
 
+// TOTAL
+function actualizarTotal() {
 
-// -------------------------------
-// INICIALIZAR UI
-// -------------------------------
+    const total = document.getElementById("total");
+
+    if (!total) return;
+
+    total.textContent = "$" + totalCarrito();
+}
+
+// TODO EN UNO
+function actualizarTodo() {
+    mostrarCarrito();
+    actualizarContador();
+    actualizarTotal();
+}
+
+// INICIO
 document.addEventListener("DOMContentLoaded", () => {
-
     renderProductos();
-    actualizarContadorUI();
-    mostrarCarritoUI();
-
+    actualizarTodo();
 });
