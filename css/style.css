@@ -29,6 +29,13 @@ main {
 }
 
 /* NAVBAR */
+
+.navbar {
+  /* position: fixed; */
+  width: 100vw;
+  z-index: 10000;
+}
+
 .navbar-brand {
   font-size: 1.6rem;
   font-weight: bold;
@@ -44,6 +51,7 @@ main {
 
 /* HERO */
 header {
+  /* margin-top: 105px; */
   min-height: 300px;
   display: flex;
   align-items: center;
@@ -64,6 +72,10 @@ header p {
 h2 {
   font-weight: bold;
   color: #232323;
+}
+
+#logo {
+  width: 120px;
 }
 
 /* TARJETAS PRODUCTOS */
@@ -109,6 +121,12 @@ h2 {
 }
 
 /* FORMULARIO */
+
+.container-form{
+  justify-content: left;
+  align-items: center;
+}
+
 form label {
   font-weight: bold;
 }
@@ -119,6 +137,10 @@ form label {
 
 .form-control:focus {
   box-shadow: 0 0 10px rgba(13, 110, 253, 0.3);
+}
+
+.btn-enviar {
+  margin-top: 20px;
 }
 
 /* QUIÉNES SOMOS */
