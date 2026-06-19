@@ -1,48 +1,45 @@
-function agregarAlCarrito(id) {
+function mostrarCarrito() {
 
-    if (localStorage.getItem("sesionActiva") !== "true") {
-        alert("Debes iniciar sesión");
-        window.location.href = "inicio.html";
-        return;
-    }
+    const contenedor = document.getElementById("contenedor-carrito");
+    if (!contenedor) return;
 
-    const producto = productos.find(p => p.id === id);
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    contenedor.innerHTML = "";
 
-    const existe = carrito.find(p => p.id === id);
+    carrito.forEach(item => {
 
-    if (existe) {
-        existe.cantidad++;
-    } else {
-        carrito.push({
-            id: producto.id,
-            nombre: producto.nombre,
-            precio: producto.precio,
-            imagen: producto.imagen,
-            cantidad: 1
-        });
-    }
+        const div = document.createElement("div");
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+        div.innerHTML = `
+            <p>${item.nombre} x${item.cantidad}</p>
+            <button onclick="eliminarDelCarrito(${item.id})">Eliminar</button>
+        `;
 
-    actualizarTodo();
+        contenedor.appendChild(div);
+    });
 }
 
-function eliminarDelCarrito(id) {
+function actualizarContador() {
 
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const contador = document.getElementById("contador-carrito");
+    if (!contador) return;
 
-    carrito = carrito.filter(p => p.id !== id);
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    actualizarTodo();
+    contador.textContent = carrito.reduce((a, b) => a + b.cantidad, 0);
 }
 
-function calcularTotal() {
+function actualizarTotal() {
 
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const total = document.getElementById("total");
+    if (!total) return;
 
-    return carrito.reduce((t, p) => t + (p.precio * p.cantidad), 0);
+    total.textContent = "$" + calcularTotal();
+}
+
+function actualizarTodo() {
+    mostrarCarrito();
+    actualizarContador();
+    actualizarTotal();
 }

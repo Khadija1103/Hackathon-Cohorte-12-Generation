@@ -1,114 +1,72 @@
-
-// INICIO DE LA APP
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    // carrito
-    if (typeof actualizarTodo === "function") {
-        actualizarTodo();
-    }
-
-    // productos
-    if (typeof renderProductos === "function") {
-        renderProductos();
-    }
-
-    // notificaciones iniciales
-    notificarDescuentoFavoritos();
+    renderProductos();
+    actualizarTodo();
+    verificarSesion();
 });
 
+function renderProductos() {
 
+    const cont = document.getElementById("contenedor-productos");
+    if (!cont) return;
 
-// MENU (LOGO)
+    cont.innerHTML = "";
 
+    productos.forEach(p => {
 
-window.toggleMenu = function (event) {
+        const div = document.createElement("div");
+        div.className = "col-md-4 mb-4";
 
-    if (event) event.stopPropagation();
+        div.innerHTML = `
+            <div class="card shadow-sm">
+                <img src="${p.imagen}">
+                <div class="card-body text-center">
+                    <h5>${p.nombre}</h5>
+                    <p>$${p.precio}</p>
+                    <button class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        `;
 
-    const menu = document.getElementById("menuDesplegable");
+        div.querySelector("button").addEventListener("click", () => {
+            agregarAlCarrito(p.id);
+            actualizarTodo();
+        });
 
-    if (menu) {
-        menu.classList.toggle("active");
-    }
-};
-
-// cerrar menú al hacer click afuera
-document.addEventListener("click", function () {
-    const menu = document.getElementById("menuDesplegable");
-    if (menu) menu.classList.remove("active");
-});
-
-
-
-// NOTIFICACIONES / GAMIFICACIÓN
-
-
-function notificarDescuentoFavoritos() {
-
-    let fav = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-    if (fav.length > 0) {
-        console.log("🔥 Tienes productos en favoritos con posibles descuentos");
-    }
+        cont.appendChild(div);
+    });
 }
 
+function actualizarContador() {
+    const c = document.getElementById("contador-carrito");
+    if (!c) return;
 
-// SISTEMA DE PUNTOS
-
-
-function calcularPuntos() {
-
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    let total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-
-    let puntos = Math.floor(total / 10000); // 1 punto por cada 10.000
-
-    localStorage.setItem("puntos", puntos);
-
-    return puntos;
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    c.textContent = carrito.reduce((a, b) => a + b.cantidad, 0);
 }
 
-
-
-// BONO PRIMERA COMPRA
-
-
-function bonoPrimeraCompra() {
-
-    const compras = localStorage.getItem("primeraCompra");
-
-    if (!compras) {
-        alert("🎁 Bienvenido! tienes bono de primera compra");
-        localStorage.setItem("primeraCompra", "true");
-    }
+function actualizarTodo() {
+    actualizarContador();
 }
 
+function verificarSesion() {
 
-// EXPORT GLOBAL HELPERS
+    const sesion = localStorage.getItem("sesionActiva");
 
+    const login = document.getElementById("login-nav");
+    const registro = document.getElementById("registro-nav");
+    const perfil = document.getElementById("perfil-nav");
+    const logout = document.getElementById("logout-nav");
 
-window.calcularPuntos = calcularPuntos;
-window.bonoPrimeraCompra = bonoPrimeraCompra;
+    if (sesion === "true") {
 
-//PARA OCULTAR BOTONES EN NAVBAR
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const logeado = localStorage.getItem("usuarioLogeado");
-
-    const perfil = document.getElementById("perfil");
-    const login = document.getElementById("login");
-    const registro = document.getElementById("registro");
-
-    if (logeado) {
         if (login) login.style.display = "none";
         if (registro) registro.style.display = "none";
         if (perfil) perfil.style.display = "block";
-    } else {
-        if (perfil) perfil.style.display = "none";
-    }
+        if (logout) logout.style.display = "block";
 
-});
+    } else {
+
+        if (perfil) perfil.style.display = "none";
+        if (logout) logout.style.display = "none";
+    }
+}
