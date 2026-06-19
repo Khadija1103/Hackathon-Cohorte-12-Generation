@@ -1,34 +1,47 @@
+// INICIO SESIÓN / CONTROL DE ACCESO
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const form = document.getElementById("loginForm");
+    const sesion = localStorage.getItem("sesionActiva");
 
-    if (!form) return;
+    // Si no hay sesión activa, bloquea compra
+    if (sesion !== "true") {
+        console.log("Usuario no logueado");
+    }
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        let email = document.getElementById("loginEmail").value.trim();
-        let password = document.getElementById("loginPassword").value.trim();
-
-        let user = JSON.parse(localStorage.getItem("user"));
-
-        if (!user) {
-            alert("No hay usuario registrado");
-            return;
-        }
-
-        if (user.email === email && user.password === password) {
-
-            localStorage.setItem("usuarioLogeado", "true");
-
-            alert("Bienvenido " + user.nombre);
-
-            window.location.href = "index.html";
-
-        } else {
-            alert("Credenciales incorrectas");
-        }
-    });
-
+    verificarSesion();
 });
+
+
+// ================= SESIÓN =================
+
+function verificarSesion() {
+
+    const sesion = localStorage.getItem("sesionActiva");
+
+    const perfil = document.getElementById("perfil");
+    const login = document.getElementById("login");
+    const registro = document.getElementById("registro");
+
+    if (sesion === "true") {
+
+        if (login) login.style.display = "none";
+        if (registro) registro.style.display = "none";
+        if (perfil) perfil.style.display = "block";
+
+    } else {
+
+        if (perfil) perfil.style.display = "none";
+    }
+}
+
+
+// ================= LOGOUT (OPCIONAL) =================
+
+function cerrarSesion() {
+
+    localStorage.removeItem("sesionActiva");
+    localStorage.removeItem("usuarioActivo");
+
+    window.location.href = "inicio.html";
+}

@@ -1,4 +1,3 @@
-
 function validarEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -52,10 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
             telefono
         };
 
+        // guardar usuario
         localStorage.setItem("user", JSON.stringify(user));
+
+        // activar sesión
+        localStorage.setItem("sesion", "activa");
 
         alert("Registro exitoso ✔");
 
+        // redirigir a inicio
         window.location.href = "inicio.html";
     });
 });

@@ -36,3 +36,63 @@ const productos = [
     imagen: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
   },
 ];
+
+
+// ================= AGREGAR AL CARRITO =================
+
+function agregarAlCarrito(id) {
+
+    const sesion = localStorage.getItem("sesionActiva");
+
+    if (sesion !== "true") {
+        alert("Debes iniciar sesión para comprar");
+        window.location.href = "inicio.html";
+        return;
+    }
+
+    const producto = productos.find(p => p.id === id);
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const existe = carrito.find(p => p.id === id);
+
+    if (existe) {
+        existe.cantidad++;
+    } else {
+        carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio,
+            imagen: producto.imagen,
+            cantidad: 1
+        });
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    alert("Producto agregado 🛒");
+}
+
+
+// ================= ELIMINAR =================
+
+function eliminarDelCarrito(id) {
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito = carrito.filter(p => p.id !== id);
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+
+// ================= TOTAL =================
+
+function calcularTotal() {
+
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    return carrito.reduce((total, item) => {
+        return total + (item.precio * item.cantidad);
+    }, 0);
+}
