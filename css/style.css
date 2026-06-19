@@ -30,12 +30,6 @@ main {
 
 /* NAVBAR */
 
-.navbar {
-  /* position: fixed; */
-  width: 100vw;
-  z-index: 10000;
-}
-
 .navbar-brand {
   font-size: 1.6rem;
   font-weight: bold;
@@ -74,6 +68,38 @@ h2 {
   color: #232323;
 }
 
+/* Loader */
+
+#pantalla-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    
+    /* CAMBIA ESTO: 1.5s es el tiempo que tardará en volverse completamente transparente */
+    transition: opacity 1.5s ease-in-out; 
+}
+
+.imagen-carga {
+    max-width: 80%;     /* Evita que en celulares la imagen sea más grande que la pantalla */
+    height: auto;       /* Mantiene la proporción original de la imagen */
+    object-fit: contain;
+    animation: latido 5s infinite ease-in-out;
+}
+
+/* Animación opcional de respiración para la imagen */
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* LOGO */
 #logo {
   width: 120px;
 }
