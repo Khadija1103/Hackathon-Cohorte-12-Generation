@@ -1,67 +1,63 @@
 /* RESET */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* GENERAL */
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f8f9fa;
     color: #333;
 }
 
 /* NAVBAR */
-.navbar-brand{
+.navbar-brand {
     font-size: 1.6rem;
     font-weight: bold;
 }
 
-.nav-link{
+.nav-link {
     transition: 0.3s;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #0d6efd !important;
 }
 
 /* HERO */
-header{
+header {
     min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-header h1{
+header h1 {
     font-size: 3rem;
     font-weight: bold;
 }
 
-header p{
+header p {
     font-size: 1.2rem;
 }
 
 /* TITULOS */
-h2{
+h2 {
     font-weight: bold;
     color: #0d6efd;
 }
 
-/* =========================
-   PRODUCTOS (ARREGLADO)
-========================= */
-
-.product-img{
+/* PRODUCTOS */
+.product-img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    display: block;
 }
 
-/* si usas bootstrap cards */
-.card{
+/* CARDS */
+.card {
     border: none;
     border-radius: 15px;
     overflow: hidden;
@@ -69,53 +65,52 @@ h2{
     margin-bottom: 20px;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
 }
 
-.card img{
+.card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
 }
 
-/* textos de cards */
-.card-title{
+.card-title {
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.card-text{
+.card-text {
     color: #0d6efd;
     font-size: 1.1rem;
     font-weight: bold;
 }
 
 /* BOTONES */
-.btn-primary{
+.btn-primary {
     border-radius: 8px;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     transform: scale(1.03);
 }
 
 /* FORMULARIOS */
-form label{
+form label {
     font-weight: bold;
 }
 
-.form-control{
+.form-control {
     border-radius: 10px;
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: 0 0 10px rgba(13,110,253,0.3);
 }
 
 /* AUTH (LOGIN / REGISTRO) */
-.auth-container{
+.auth-container {
     max-width: 420px;
     margin: 60px auto;
     background: white;
@@ -124,7 +119,7 @@ form label{
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
-.auth-title{
+.auth-title {
     text-align: center;
     font-size: 26px;
     margin-bottom: 20px;
@@ -132,7 +127,7 @@ form label{
     color: #0d6efd;
 }
 
-.auth-btn{
+.auth-btn {
     width: 100%;
     border-radius: 10px;
 }
@@ -284,44 +279,44 @@ form label{
 }
 
 /* FOOTER */
-footer{
+footer {
     margin-top: 50px;
     font-size: 0.95rem;
 }
 
 /* RESPONSIVE TABLET */
-@media (max-width: 768px){
+@media (max-width: 768px) {
 
-    header h1{
+    header h1 {
         font-size: 2.2rem;
     }
 
-    header p{
+    header p {
         font-size: 1rem;
     }
 
-    .navbar-brand{
+    .navbar-brand {
         font-size: 1.3rem;
     }
 }
 
 /* RESPONSIVE CELULAR */
-@media (max-width: 576px){
+@media (max-width: 576px) {
 
-    header{
+    header {
         min-height: 220px;
         padding: 20px;
     }
 
-    header h1{
+    header h1 {
         font-size: 1.8rem;
     }
 
-    h2{
+    h2 {
         font-size: 1.5rem;
     }
 
-    .card img{
+    .card img {
         height: 200px;
     }
 }
