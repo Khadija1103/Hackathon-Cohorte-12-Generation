@@ -1,27 +1,69 @@
+// =====================
+// REGISTRO
+// =====================
+const registerForm = document.getElementById("registerForm");
 
-function estaLogeado() {
-    return localStorage.getItem("usuarioLogeado") === "true";
+if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const usuario = {
+            nombre: document.getElementById("nombre").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            telefono: document.getElementById("telefono").value.trim(),
+            password: document.getElementById("password").value.trim()
+        };
+
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        alert("Registro exitoso");
+
+        // IMPORTANTE: ir a login (inicio.html)
+        window.location.href = "inicio.html";
+    });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    const carritoNav = document.getElementById("carrito-nav");
-    const loginNav = document.getElementById("login-nav");
-    const registroNav = document.getElementById("registro-nav");
-    const perfilNav = document.getElementById("perfil-nav");
+// =====================
+// LOGIN
+// =====================
+const loginForm = document.getElementById("loginForm");
 
-    if (estaLogeado()) {
+if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-        if (carritoNav) carritoNav.style.display = "block";
-        if (perfilNav) perfilNav.style.display = "block";
-        if (loginNav) loginNav.style.display = "none";
-        if (registroNav) registroNav.style.display = "none";
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value.trim();
 
-    } else {
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
 
-        if (carritoNav) carritoNav.style.display = "none";
-        if (perfilNav) perfilNav.style.display = "none";
-        if (loginNav) loginNav.style.display = "block";
-        if (registroNav) registroNav.style.display = "block";
-    }
-});
+        if (!usuario) {
+            alert("Primero regístrate");
+            return;
+        }
+
+        if (email === usuario.email && password === usuario.password) {
+
+            localStorage.setItem("sesionActiva", "true");
+
+            alert("Bienvenido " + usuario.nombre);
+
+            // IR A TIENDA
+            window.location.href = "index.html";
+
+        } else {
+            alert("Datos incorrectos");
+        }
+    });
+}
+
+
+// =====================
+// LOGOUT
+// =====================
+function logout() {
+    localStorage.removeItem("sesionActiva");
+    alert("Sesión cerrada");
+    window.location.href = "index.html";
+}
