@@ -1,85 +1,51 @@
-// Obtener carrito guardado o crear uno vacío
+// =========================
+// CARRITO
+// =========================
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-// Agregar producto al carrito
-function agregarAlCarrito(idProducto) {
+// AGREGAR
+function agregarAlCarrito(id) {
 
-    const producto = productos.find(
-        producto => producto.id === idProducto
-    );
+    const producto = productos.find(p => p.id === id);
 
-    const productoExistente = carrito.find(
-        item => item.id === idProducto
-    );
+    const existe = carrito.find(p => p.id === id);
 
-    if (productoExistente) {
-
-        productoExistente.cantidad++;
-
+    if (existe) {
+        existe.cantidad++;
     } else {
-
-        carrito.push({
-            ...producto,
-            cantidad: 1
-        });
-
+        carrito.push({ ...producto, cantidad: 1 });
     }
 
-    guardarCarrito();
-    actualizarContadorCarrito();
+    guardar();
 
-    alert(`${producto.nombre} agregado al carrito`);
+    alert(`🛒 ${producto.nombre} agregado al carrito`);
+
+    actualizarTodo();
 }
 
-// Eliminar producto
-function eliminarDelCarrito(idProducto) {
+// ELIMINAR
+function eliminarDelCarrito(id) {
 
-    carrito = carrito.filter(
-        item => item.id !== idProducto
-    );
+    const producto = carrito.find(p => p.id === id);
 
-    guardarCarrito();
-    actualizarContadorCarrito();
+    carrito = carrito.filter(p => p.id !== id);
 
-    if (typeof mostrarCarrito === "function") {
-        mostrarCarrito();
+    guardar();
+
+    if (producto) {
+        alert(`❌ ${producto.nombre} eliminado del carrito`);
     }
+
+    actualizarTodo();
 }
 
-// Guardar en localStorage
-function guardarCarrito() {
-
-    localStorage.setItem(
-        "carrito",
-        JSON.stringify(carrito)
-    );
+// GUARDAR
+function guardar() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Actualizar contador
-function actualizarContadorCarrito() {
-
-    const contador = document.getElementById(
-        "contador-carrito"
-    );
-
-    if (contador) {
-
-        const totalProductos = carrito.reduce(
-            (total, producto) =>
-                total + producto.cantidad,
-            0
-        );
-
-        contador.textContent = totalProductos;
-    }
-}
-
-// Calcular total de la compra
-function calcularTotal() {
-
-    return carrito.reduce(
-        (total, producto) =>
-            total + (producto.precio * producto.cantidad),
-        0
-    );
+// TOTAL
+function totalCarrito() {
+    return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 }
