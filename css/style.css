@@ -66,6 +66,10 @@ h2 {
   color: #232323;
 }
 
+#logo {
+  width: 120px;
+}
+
 /* TARJETAS PRODUCTOS */
 .card {
   border: none;
@@ -167,7 +171,7 @@ footer {
 }
 
 .btn-vaciar {
-  background-color: #F8F8F6;
+  background-color: #f8f8f6;
   border: 2px solid #dc3545;
   color: #dc3545;
   border-radius: 8px;
@@ -180,7 +184,7 @@ footer {
 }
 
 .btn-pagar {
-  background-color: #F8F8F6;
+  background-color: #f8f8f6;
   color: #232323;
   border: none;
   border-radius: 8px;
@@ -202,6 +206,32 @@ footer {
   font-size: 5rem;
   display: block;
   margin-bottom: 20px;
+}
+
+/*Imagen de logo separador*/
+.logo-separador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  margin: 2rem 0;
+}
+
+.imagen-logo {
+  width: 280px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+}
+
+.imagen-logo:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.tfg {
+  color: white;
 }
 
 /* RESPONSIVE TABLET */
