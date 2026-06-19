@@ -11,86 +11,118 @@
 
 <body class="bg-light">
 
-<!-- LOGO -->
-<div class="logo-boton" onclick="toggleMenu()">
-    <img src="assets/images/logo.png" alt="logo">
-</div>
+    <!-- LOGO -->
+    <div class="logo-boton" onclick="toggleMenu()">
+        <img src="assets/images/logo.png" alt="logo">
+    </div>
 
-<!-- MENU -->
-<div id="menuDesplegable" class="menu">
+    <!-- MENU -->
+    <div id="menuDesplegable" class="menu">
 
-    <a href="index.html">🏠 Inicio</a>
-    <a href="quienes-somos.html">👥 Quiénes Somos</a>
-    <a href="contactanos.html">📩 Contáctanos</a>
-    <a href="carrito.html">🛒 Carrito</a>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="quienes-somos.html">👥 Quiénes Somos</a>
+        <a href="contactanos.html">📩 Contáctanos</a>
+        <a href="carrito.html">🛒 Carrito</a>
 
-</div>
+    </div>
 
-<!-- FONDO OSCURO -->
-<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+    <!-- FONDO OSCURO -->
+    <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
 
-<div class="container py-5">
+    <div class="container py-5">
 
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-        <div class="col-md-8">
+            <div class="col-md-8">
 
-            <div class="card shadow-lg border-0 rounded-4 p-4">
+                <div class="card shadow-lg border-0 rounded-4 p-4">
 
-                <div class="text-center mb-4">
+                    <div class="text-center mb-4">
 
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                         class="perfil-avatar">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="perfil-avatar">
 
-                    <h3 class="mt-3">👤 Mi Perfil</h3>
-                    <p class="text-muted">Autenticación de datos</p>
+                        <h3 class="mt-3">👤 Mi Perfil</h3>
+                        <p class="text-muted">Autenticación de datos</p>
+
+                    </div>
+
+                    <form id="formPerfil">
+
+                        <div class="mb-2">
+                            <label>Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre">
+                            <small id="errorNombre" class="text-danger"></small>
+                        </div>
+
+                        <div class="mb-2">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email">
+                            <small id="errorEmail" class="text-danger"></small>
+                        </div>
+
+                        <div class="mb-2">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" id="telefono">
+                            <small id="errorTelefono" class="text-danger"></small>
+                        </div>
+
+                        <div class="mb-2">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" id="direccion">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Guardar perfil
+                        </button>
+
+                    </form>
 
                 </div>
-
-                <form id="formPerfil">
-
-                    <div class="mb-2">
-                        <label>Nombre completo</label>
-                        <input type="text" class="form-control" id="nombre">
-                        <small id="errorNombre" class="text-danger"></small>
-                    </div>
-
-                    <div class="mb-2">
-                        <label>Email</label>
-                        <input type="email" class="form-control" id="email">
-                        <small id="errorEmail" class="text-danger"></small>
-                    </div>
-
-                    <div class="mb-2">
-                        <label>Teléfono</label>
-                        <input type="text" class="form-control" id="telefono">
-                        <small id="errorTelefono" class="text-danger"></small>
-                    </div>
-
-                    <div class="mb-2">
-                        <label>Dirección</label>
-                        <input type="text" class="form-control" id="direccion">
-                    </div>
-
-                    <div class="mb-3">
-                        <label>Ciudad</label>
-                        <input type="text" class="form-control" id="ciudad">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary w-100">
-                        Guardar perfil
-                    </button>
-
-                </form>
 
             </div>
 
         </div>
 
     </div>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center">
 
-</div>
+            <p class="mb-3 text-uppercase fw-bold small" style="color: #0d6efd; letter-spacing: 1.5px;">
+                ✨ Creado por el equipo 2
+            </p>
 
-<script src="js/perfil.js"></script>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                <span
+                    class="badge rounded-pill bg-light text-dark px-3 py-2 border border-secondary border-opacity-50">Lucia
+                    Cantillo</span>
+                <span
+                    class="badge rounded-pill bg-light text-dark px-3 py-2 border border-secondary border-opacity-50">Miguel
+                    Saldaña</span>
+                <span
+                    class="badge rounded-pill bg-light text-dark px-3 py-2 border border-secondary border-opacity-50">Tatiana
+                    Jiménez</span>
+                <span
+                    class="badge rounded-pill bg-light text-dark px-3 py-2 border border-secondary border-opacity-50">Armando
+                    Mora</span>
+                <span
+                    class="badge rounded-pill bg-light text-dark px-3 py-2 border border-secondary border-opacity-50">Juan
+                    Oviedo</span>
+            </div>
+
+            <hr class="border-secondary opacity-25 my-3" style="max-width: 600px; margin: 0 auto;">
+
+            <p class="mb-0 text-muted small">
+                © 2026 TrendyShop — Generation Java Corte 12
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/perfil.js"></script>
 </body>
+
 </html>
