@@ -1,3 +1,12 @@
+:root {
+  --primary: #111111;
+  --secondary: #d7b98a;
+  --accent: #e5d0ab;
+  --background: #f8f8f6;
+  --surface: #ffffff;
+  --text: #232323;
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -16,7 +25,7 @@ body {
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 /* NAVBAR */
@@ -39,6 +48,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #d7b98a;
 }
 
 header h1 {
@@ -53,7 +63,7 @@ header p {
 /* TITULOS */
 h2 {
   font-weight: bold;
-  color: #E5D0AB;
+  color: #232323;
 }
 
 /* TARJETAS PRODUCTOS */
@@ -89,10 +99,13 @@ h2 {
 /* BOTONES */
 .btn-primary {
   border-radius: 8px;
+  background-color: #f8f8f6;
+  color: #232323;
 }
 
 .btn-primary:hover {
   transform: scale(1.03);
+  background-color: #e5d0ab;
 }
 
 /* FORMULARIO */
@@ -121,6 +134,10 @@ img {
 footer {
   margin-top: 50px;
   font-size: 0.95rem;
+}
+
+/* Botones */
+.btn {
 }
 
 /* RESPONSIVE TABLET */

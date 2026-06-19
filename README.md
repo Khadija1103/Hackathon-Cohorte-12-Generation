@@ -1,5 +1,5 @@
 TrendyShop
- Descripción
+Descripción
 
 TrendyShop es una tienda en línea desarrollada como proyecto de hackathon. Simula una tienda de ropa que busca mejorar su presencia digital tras una crisis por mala experiencia de usuario y baja competitividad.
 
@@ -28,4 +28,3 @@ js/app.js
 js/productos.js
 js/carrito.js
 js/ui.js
-
